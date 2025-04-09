@@ -1,8 +1,12 @@
 <template>
   <div class="fs-estimated-virtuallist-container" v-loading="props.loading">
+    <!-- 外部容器，带加载状态 -->
     <div class="fs-estimated-virtuallist-content" ref="contentRef">
+      <!-- 滚动内容区域 -->
       <div class="fs-estimated-virtuallist-list" ref="listRef" :style="scrollStyle">
+        <!-- 实际渲染的列表，使用transform进行位移 -->
         <div class="fs-estimated-virtuallist-list-item" v-for="i in renderList" :key="i.id" :id="String(i.id)">
+          <!-- 使用插槽让外部自定义内容 -->
           <slot name="item" :item="i"></slot>
         </div>
       </div>
